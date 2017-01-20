@@ -12,6 +12,11 @@ app.get('/api/count/increment', function (req, res) {
     res.send(count + '');
 });
 
+app.get('/api/count/reset', function (req, res) {
+    count = 0;
+    res.send(count + '');
+});
+
 app.get('*', function(req, res) {
     res.send(req.url)
 });
