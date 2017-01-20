@@ -3,13 +3,17 @@ var app = express();
 
 var count = 0;
 
-app.get('/count', function (req, res) {
+app.get('/api/count', function (req, res) {
     res.send(count + '');
 });
 
-app.get('/count/increment', function (req, res) {
+app.get('/api/count/increment', function (req, res) {
     count++;
     res.send(count + '');
+});
+
+app.get('*', function(req, res) {
+    res.send(req.url)
 });
 
 app.listen(3000, function () {
